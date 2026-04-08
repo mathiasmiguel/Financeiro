@@ -1,0 +1,24 @@
+meu-projeto/
+├── node_modules/       # Dependências do projeto
+├── public/             # Arquivos estáticos (favicons, manifest.json)
+├── src/                # Onde a mágica acontece
+│   ├── assets/         # Imagens, SVGs, fontes e vídeos
+│   ├── components/     # Componentes reutilizáveis (Botões, Cards, Inputs)
+│   │   └── Button/
+│   │       ├── index.tsx
+│   │       └── styles.css
+│   ├── hooks/          # Custom hooks (ex: useAuth, useLocalStorage)
+│   ├── layouts/        # Wrappers de página (ex: DashboardLayout)
+│   ├── pages/          # Componentes de rota (Home, Login, Dashboard)
+│   ├── services/       # Configurações de API (Axios, Fetch)
+│   ├── store/          # Gerenciamento de estado (Redux, Context API, Zustand)
+│   ├── styles/         # Estilos globais e temas
+│   ├── utils/          # Funções auxiliares e formatadores
+│   ├── App.tsx         # Componente principal/Raiz
+│   ├── main.tsx        # Ponto de entrada do React
+│   └── vite-env.d.ts   # Definições de tipos do Vite
+├── .gitignore          # Arquivos ignorados pelo Git
+├── index.html          # Template HTML principal
+├── package.json        # Scripts e lista de dependências
+├── tsconfig.json       # Configurações do TypeScript (se usar TS)
+└── vite.config.ts      # Configurações do Vite
