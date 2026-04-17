@@ -1,7 +1,8 @@
-import { useState } from "react";
+interface DisplaySaldoProps {
+    saldo: number;
+}
 
-export default function DisplaySaldo({ saldo }) {
-    const [showSaldo, setShowSaldo] = useState(true);
+export default function DisplaySaldo({ saldo }: DisplaySaldoProps) {
 
     return (
         <div className="display-saldo">

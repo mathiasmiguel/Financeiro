@@ -1,10 +1,15 @@
 import DisplayExpense from "./displays/displayExpense";
 import DisplayIncome from "./displays/displayIncome";
-import DisplaySaldo from "./displays/displaySaldo";
+import DisplaySaldo from "./displays/displaySaldo.tsx";
 import "./displayTriplo.css";
 
-export default function DisplayTriplo({ saldo, despesas, receitas }) {
+interface DisplayTriploProps {
+    saldo: number;
+    despesas: number;
+    receitas: number;
+}
 
+export default function DisplayTriplo({ saldo, despesas, receitas }: DisplayTriploProps) {
     return (
         <div className="display-triplo">
             <DisplaySaldo saldo={saldo} />

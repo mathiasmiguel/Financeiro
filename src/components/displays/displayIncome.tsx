@@ -1,4 +1,8 @@
-export default function DisplayIncome({ receitas }) {
+interface DisplayIncomeProps {
+    receitas: number;
+}
+
+export default function DisplayIncome({ receitas }: DisplayIncomeProps) {
     return (
         <div className="card display-income">
             <h3>Receitas</h3>
