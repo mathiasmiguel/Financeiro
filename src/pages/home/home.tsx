@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import DisplayTriplo from '../../components/displayTriplo'
-import Header from '../../components/header'
-import Sidebar from '../../components/sidebar'
+import Moldura from '../../components/moldura'
 import './home.css' 
 
 // 1. Defina o formato da sua transação (deve bater com as colunas do Postgres)
@@ -45,8 +44,7 @@ export default function Home() {
 
     return (
       <>
-      <Sidebar/>
-        <Header />
+      <Moldura />
         <ul id="lista">
           {transacoes.map((t) => (
             <li key={t.id}>
@@ -55,7 +53,6 @@ export default function Home() {
           ))}
         </ul>
         
-        {/* Passando os valores calculados */}
         <DisplayTriplo 
             saldo={saldo} 
             despesas={despesas} 
