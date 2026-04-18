@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import DisplayTriplo from '../../components/displayTriplo.tsx'
-import Header from '../../components/header.tsx'
+import DisplayTriplo from '../../components/displayTriplo'
+import Header from '../../components/header'
+import Sidebar from '../../components/sidebar'
 import './home.css' 
 
 // 1. Defina o formato da sua transação (deve bater com as colunas do Postgres)
@@ -44,6 +45,7 @@ export default function Home() {
 
     return (
       <>
+      <Sidebar/>
         <Header />
         <ul id="lista">
           {transacoes.map((t) => (

@@ -1,0 +1,68 @@
+.sidebar {
+    /* Usando suas variáveis existentes */
+    width: 260px;
+    height: 100vh;
+    background-color: var(--bg-card); /* Mesma cor dos seus cards */
+    color: var(--text-main);
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #e2e8f0; /* Um tom sutil para separar do body */
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 2rem;
+    font-weight: 700;
+    color: var(--primary); /* Seu azul 2563eb */
+    font-size: 1.25rem;
+    border-bottom: 1px solid var(--bg-body);
+}
+
+.sidebar-menu {
+    flex: 1;
+    padding: 1.5rem 0;
+    list-style: none;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+    background-color: var(--bg-body);
+    color: var(--primary);
+}
+
+.sidebar-link.active {
+    background-color: #eff6ff; /* Um azul bem claro para o item ativo */
+    color: var(--primary);
+    border-right: 4px solid var(--primary);
+    font-weight: 600;
+}
+
+/* Aplicando suas cores de transação no menu */
+.link-income {
+    color: var(--income);
+}
+
+.link-expense {
+    color: var(--expense);
+}
+
+.sidebar-footer {
+    padding: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--bg-body);
+}
