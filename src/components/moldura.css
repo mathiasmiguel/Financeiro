@@ -1,14 +1,18 @@
-.header {
-    background-color: var(--bg-card);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-}
+/* .header {
+  background-color: var(--bg-card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: var(--border);
+  position: fixed;
+} */
 
 .sidebar {
-    background-color: var(--bg-card);
-    padding: 1rem;
-    width: 200px;
-    height: 100vh;
+  background-color: var(--bg-card);
+  padding: 1rem;
+  width: 150px;
+  height: 100vh;
+  border-right: var(--border);
+  position: fixed;
 }

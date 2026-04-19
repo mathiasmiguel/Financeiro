@@ -1,3 +1,5 @@
+import './moldura.css'
+
 export default function Header() {
     const dataAtual = new Date().toLocaleDateString('pt-BR')
 
