@@ -1,0 +1,21 @@
+/* Bordas customizadas */
+.border-income {
+  border: 2px solid var(--income) !important; /* Verde */
+}
+.border-expense {
+  border: 2px solid var(--expense) !important; /* Vermelho */
+}
+.border-saldo {
+  border: 2px solid var(--primary) !important; /* Azul */
+}
+
+/* Textos Customizados */
+.text-income {
+  color: var(--income) !important; 
+}
+.text-expense {
+  color: var(--expense) !important; 
+}
+.text-saldo {
+  color: var(--primary) !important; 
+}
