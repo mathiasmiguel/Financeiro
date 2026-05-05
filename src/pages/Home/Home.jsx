@@ -15,8 +15,7 @@ export default function Home() {
         <main>
           <Header />
           <DisplayTriplo />
-          {/* <ListaTransacoes /> */}
-          {/* <FormEnviarTransacao />  */}
+          <ListaTransacoes />
         </main>
       </div>
     </div>
