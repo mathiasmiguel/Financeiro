@@ -1,44 +1,88 @@
-import DisplayExpense from "../Displays/DisplayExpense";
-import DisplayIncome from "../Displays/DisplayIncome";
-import DisplaySaldo from "../Displays/DisplaySaldo";
-import { transacaoService } from "../../services/api";
 import { useEffect, useState } from "react";
-import "./DisplayTriplo.css";
+import buscarTransacoes from "../../services/buscarTransacoes";
+import { TrendingUp, TrendingDown, Wallet } from 'lucide-react';
+
+
 export default function DisplayTriplo() {
-  const [dados, setDados] = useState([]);
+  const [transacoes, setTransacoes] = useState([]);
+
   useEffect(() => {
-    transacaoService.getTodasTransacoes().then(transacoes => setDados(transacoes)).catch(error => console.error("Erro ao buscar transações:", error));
-  }, []);
-  function calcularPropsValores() {
+    async function carregar() {
+      const dados = await buscarTransacoes();
+      if (dados) {
+        setTransacoes(dados);
+      }
+    }
+    carregar();
+  }, []); // O array vazio garante que busque apenas uma vez
+
+  // O restante da sua função calcularValores() pode continuar igual
+  // utilizando a variável 'transacoes' do estado.
     let saldo = 0;
     let despesas = 0;
     let receitas = 0;
-    dados.map(transacao => {
-      if (transacao.tipo === "receita") {
+    transacoes.forEach((transacao) => {
+      if (transacao.tipo === "Receita") {
         saldo += transacao.valor;
         receitas += transacao.valor;
       } else {
         saldo -= transacao.valor;
         despesas += transacao.valor;
       }
-      console.log("saldo", saldo);
-      console.log("despesas", despesas);
-      console.log("receitas", receitas);
-    });
-    return {
-      saldo: Number(saldo),
-      despesas: Number(despesas),
-      receitas: Number(receitas)
-    };
-  }
-  const {
-    saldo,
-    despesas,
-    receitas
-  } = calcularPropsValores();
-  return <div className="row ">
-            <DisplaySaldo saldo={saldo} />
-            <DisplayExpense despesas={despesas} />
-            <DisplayIncome receitas={receitas} />
-        </div>;
+    }
+  );
+  return (
+    <div className="row g-4 mb-4">
+      <div className="col-12 col-md-4">
+        <div className="premium-card p-4 h-100">
+          <div className="d-flex align-items-start justify-content-between">
+            <div>
+              <p className="text-muted fw-medium mb-1">Saldo Total</p>
+              <h3 className="fw-bold mb-0 text-dark">{saldo.toLocaleString('PT-BR')}</h3>
+            </div>
+            <div className="bg-primary-soft p-2 rounded-circle">
+              <Wallet size={24} />
+            </div>
+          </div>
+          {/* <div className="mt-3 d-flex align-items-center gap-2">
+            // TO-DO: adicionar uma informação sobre alteração do saldo inerente ao mes anterior 
+          </div> */}
+        </div>
+      </div>
+
+      <div className="col-12 col-md-4">
+        <div className="premium-card p-4 h-100">
+          <div className="d-flex align-items-start justify-content-between">
+            <div>
+              <p className="text-muted fw-medium mb-1">Despesas</p>
+              <h3 className="fw-bold mb-0 text-dark">{despesas.toLocaleString('PT-BR')}</h3>
+            </div>
+            <div className="bg-danger-soft p-2 rounded-circle">
+              <TrendingDown size={24} />
+            </div>
+          </div>
+          {/* <div className="mt-3 d-flex align-items-center gap-2">
+            // TO-DO: adicionar uma informação sobre alteração do saldo inerente ao mes anterior 
+          </div> */}
+        </div>
+      </div>
+
+      <div className="col-12 col-md-4">
+        <div className="premium-card p-4 h-100">
+          <div className="d-flex align-items-start justify-content-between">
+            <div>
+              <p className="text-muted fw-medium mb-1">Receitas</p>
+              <h3 className="fw-bold mb-0 text-dark">{receitas.toLocaleString('PT-BR')}</h3>
+            </div>
+            <div className="bg-success-soft p-2 rounded-circle">
+              <TrendingUp size={24} />
+            </div>
+          </div>
+          {/* <div className="mt-3 d-flex align-items-center gap-2">
+            // TO-DO: adicionar uma informação sobre alteração do saldo inerente ao mes anterior 
+          </div> */}
+        </div>
+      </div>
+      </div>
+  );
 }
