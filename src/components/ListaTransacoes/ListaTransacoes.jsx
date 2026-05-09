@@ -49,7 +49,7 @@ export default function ListaTransacoes() {
           return (
             <tr key={transacao.id}>
               <td>{transacao.descricao}</td>
-              <td>{transacao.valor.toFixed(2)}</td>
+              <td>{transacao.valor.toFixed(2).replace(".", ",")}</td>
               <td>{transacao.categoria}</td>
               <td>{transacao.tipo}</td>
               <td>{dataFormatada}</td>

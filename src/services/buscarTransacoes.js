@@ -10,8 +10,9 @@ export default async function buscarTransacoes() {
 
         transacoes.map(transacao => {
             transacao.valor = Number(transacao.valor)
-            transacao.data = new Date(transacao.data)
+            transacao.data = new Date(transacao.data_registro)
             transacao.tipo = transacao.tipo.charAt(0).toUpperCase() + transacao.tipo.slice(1)
+            transacao.isPago = transacao.is_pago
         })
 
         return transacoes
